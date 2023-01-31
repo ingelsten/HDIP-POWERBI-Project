@@ -12,7 +12,7 @@
 # Upload the CSV file
 #Add-PnPFile -Path "C:\Users\aingelsten\data_list_cleaned.csv"
 
-#Config Variables
+<#Config Variables
 $SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
 $SourceFilePath ="C:\Users\aingelsten\data_list_cleaned.csv"
 $DestinationPath = "Shared Documents" #Site Relative Path of the Library
@@ -29,3 +29,35 @@ Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
 
 
 #Read more: https://www.sharepointdiary.com/2016/06/upload-files-to-sharepoint-online-using-powershell.html#ixzz7qlYIjtZk
+#>
+Write-Output "Exporting to SharePoint"
+
+#Configuration of Sharepoint Variables
+$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
+$SourceFilePath ="c:\Users\aingelsten\scripts\formslist.csv"
+$DestinationPath = "Kpi_Data" #Site Relative Path of the Library
+  
+  
+#Connect to PnP Online using Weblogin
+#Connect-PnPOnline -Url $SiteURL -UseWebLogin  
+
+#Powershell pnp to upload file to sharepoint online
+#Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
+
+#Write-Output "Process Completed"
+
+$ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
+$ClientSecret ="TK5KpFk+UX1XI+F4zsEXv1rDFF045QTortyhXC/z17g="
+
+#connection example.
+
+#Site collection URL
+$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline/"
+ 
+#Connect to SharePoint Online with ClientId and ClientSecret
+Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret
+
+#Powershell pnp to upload file to sharepoint online
+Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
+
+Write-Output "Process Completed"
