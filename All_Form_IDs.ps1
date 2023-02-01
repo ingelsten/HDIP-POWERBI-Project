@@ -1,7 +1,13 @@
 ﻿<#
-Fieldview API 1 - Lst of all froms up to 3months old.
-This API pulls all project id's and pull all forms up to 3 months old by modified data
+Fieldview API 3 - List of all Form IDs
+This API loops through all dates pulls all project id's and pull all forms id's
 When pull is completed the data is exported to Sharepoint Online
+#>
+
+
+<#
+This API only pulls data 3months back in time, 
+start time of the first projects was in the Summer of 2021
 #>
 
 
@@ -34,7 +40,8 @@ $dateTo= $reportEnd
 Write-Output "Date To"
 Write-Output $dateTo
 
-$projectids = Get-Content C:\Users\aingelsten\scripts\projectid2.txt
+$projectids = "21206"
+
 
 Write-Output "Starting loop"
 
@@ -67,7 +74,7 @@ Write-Output $formsListID
 
 $str_list = @($formsListID)
 $obj_list = $str_list | Select-Object @{Name='Form_ID';Expression={$_}}
-$obj_list | Export-Csv -Path c:\Users\aingelsten\scripts\formslist_ID.csv -append -NoType
+$obj_list | Export-Csv -Path c:\Users\aingelsten\scripts\formslist_ID.txt -append -NoType
 
 #fix https://stackoverflow.com/questions/19450616/export-csv-exports-length-but-not-name
 
@@ -75,7 +82,7 @@ Write-Output  "Data written to file"
 
 }
 
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 6
 
 }
 
@@ -95,12 +102,15 @@ Write-Output "Exporting to SharePoint"
 $SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
 $SourceFilePath ="c:\Users\aingelsten\scripts\formslist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
-  
-  
-#Connect to PnP Online using Weblogin
-Connect-PnPOnline -Url $SiteURL -UseWebLogin  
+$ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
+$ClientSecret ="TK5KpFk+UX1XI+F4zsEXv1rDFF045QTortyhXC/z17g="
+
+
+ 
+#Connect to SharePoint Online with ClientId and ClientSecret
+Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret
 
 #Powershell pnp to upload file to sharepoint online
 Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
 
-Write-Output "Process Completed"
+Write-Output "Process Answer Completed"

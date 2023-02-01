@@ -61,3 +61,16 @@ Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret
 Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
 
 Write-Output "Process Completed"
+
+
+$csv = Import-CSV -Path c:\Users\aingelsten\scripts\All_Formslist.csv 
+$IDs = $csv.ID | Select-Object -Unique
+foreach ($ID in $IDs) {
+    $newfile,$csv = $csv.where({$_.ID -eq $ID},'Split')
+    $newfile | Export-CSV "c:\Users\aingelsten\scripts\$ID.csv"
+}
+
+$a = Import-Csv C:\Users\aingelsten\scripts\All_Formslist.csv 
+$b = $a[0] | Get-Member | Where-Object { $_.membertype -eq 'noteproperty'} | Select-Object name
+$b | ForEach-Object { $a | Format-Table -Property $_.name | out-file "$($_.name).txt"  }
+Write-Output "Process Completed"
