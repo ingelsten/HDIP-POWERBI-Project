@@ -9,7 +9,7 @@ $apiToken = Get-Content C:\Users\aingelsten\scripts\api_AF_id.txt
 $FVForms = New-WebServiceProxy -Uri "https://www.priority1.uk.net/FieldViewWebServices/WebServices/XML/API_FormsServices.asmx?WSDL"
 
 #Gets All ID's
-$formIds = Get-Content C:\Users\aingelsten\scripts\formslist_ID.csv
+$formIds = Get-Content "C:\Users\aingelsten\scripts\All_Formslist_ID.csv"
 
 #Loops through every project id
 foreach ($formId in $formIds)

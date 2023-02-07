@@ -111,7 +111,7 @@ Write-Output "Export seperate file of Form ID's only"
 
 #import, split and export.
 $AllFormlist = "C:\Users\aingelsten\scripts\All_Formslist.csv"
-Get-Content $AllFormlist | ForEach-Object{$_.Split(",")[1]} | set-content "C:\Users\aingelsten\scripts\All_Formslist2.csv"
+Get-Content $AllFormlist | ForEach-Object{$_.Split(",")[1]} | set-content "C:\Users\aingelsten\scripts\All_Formslist_ID.csv"
 Write-Output "Process Completed"
 
 Write-Output "Exporting to SharePoint"
