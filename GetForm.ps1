@@ -7,7 +7,7 @@ $apiToken = Get-Content C:\Users\aingelsten\scripts\api_AF_id.txt
 $FVForms = New-WebServiceProxy -Uri "https://www.priority1.uk.net/FieldViewWebServices/WebServices/XML/API_FormsServices.asmx?WSDL"
 
 #Gets All ID's
-$formIds = "F274736.62"
+$formIds = "F1.1886476"
 
 
 
@@ -24,7 +24,7 @@ $form = $FVForms.GetForm($apiToken, $formId).FormInformation.childnodes
 
 $form | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $formId
 
-$form | Export-Csv -Path C:\Users\aingelsten\scripts\SiteDiary_Sample.csv -Append -NoTypeInformation
+$form | Export-Csv -Path C:\Users\aingelsten\scripts\SiteReport_Sample.csv -Append -NoTypeInformation
 
 Write-Output $form
 

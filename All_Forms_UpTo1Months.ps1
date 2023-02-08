@@ -31,7 +31,7 @@ $reportEnd = (Get-Date).AddHours(1)
 Write-Output $reportEnd
 
 #Getting dates
-$datefrom = Get-Date -Date $reportEnd.AddMonths(-2) -Format "yyyy-MM-ddTHH:mm:ss"
+$datefrom = Get-Date -Date $reportEnd.AddDays(-30) -Format "yyyy-MM-ddTHH:mm:ss"
 
 $dateTo= $reportEnd
 
