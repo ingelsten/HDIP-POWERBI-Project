@@ -1,4 +1,4 @@
-﻿<#
+<#
 Fieldview API 1 - Lst of all froms up to 3months old.
 This API pulls all project id's and pull all forms up to 3 months old by modified data
 When pull is completed the data is exported to Sharepoint Online
@@ -81,7 +81,7 @@ Start-Sleep -Seconds 0.5
 Write-Output "Removing duplicates"
 
 #Removal of duplications by import and sort
-$cleaned = Import-Csv C:\Users\aingelsten\scripts\formslist.csv| sort FormID –Unique
+$cleaned = Import-Csv C:\Users\aingelsten\scripts\formslist.csv| Sort-Object FormID -Unique
 
 Start-Sleep -Seconds 0.5
 
