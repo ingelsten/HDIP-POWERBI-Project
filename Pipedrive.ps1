@@ -22,7 +22,7 @@ $Pipedrive_domain="mainlinegroup"
 
 #$Url=$Pipedrive_BaseURL+"activities?start=0&api_token=$PipeDriveAPI"
 
-Write-Output $Url
+#Write-Output $Url
 
 # related Blog Post https://www.techguy.at/control-pipedrive-crm-with-powershell-start-and-connect/
 

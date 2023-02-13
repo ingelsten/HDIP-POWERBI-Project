@@ -18,11 +18,14 @@ Write-Output "Getting Project ID's"
 #Gets Project ID
 $FVApiConfig.GetProjects($apiToken, $null, $null, 1, 0, 100).ProjectInformation.childnodes.id
 
-
 $id = $FVApiConfig.GetProjects($apiToken, $null, $null, 1, 0, 100).ProjectInformation.childnodes.id
 
 #Export of Project ID
-$id | Out-File c:\Users\aingelsten\scripts\projectid.txt
+$id | Sort-Object | Out-File c:\Users\aingelsten\scripts\projectid.txt
+
+#Get-Content c:\Users\aingelsten\scripts\projectid.txt | Sort-Object | Out-File c:\Users\aingelsten\scripts\projectid.txt
+
+#$id | Sort-Object | Out-File c:\Users\aingelsten\scripts\projectid.txt
 
 Write-Output "Getting Dates"
 
@@ -51,7 +54,7 @@ $FVApiForms.GetProjectFormsList($apiToken, $projectid, $null, 0, $datefrom, $dat
 $formsList = $FVApiForms.GetProjectFormsList($apiToken, $projectid, $null, 0, $datefrom, $dateTo, $null, $null, $null, $null, $null, $null).ProjectFormsListInformation.childnodes
 
 #If statement for if data is null or not
-if ($formsList -eq $null)
+if ($null -eq $formsList)
 
 {
 Write-Output "*****NOTHING FOUND****"
@@ -85,7 +88,7 @@ $cleaned = Import-Csv C:\Users\aingelsten\scripts\formslist.csv| Sort-Object For
 
 Start-Sleep -Seconds 0.5
 
-$cleaned | Export-Csv -Path C:\Users\aingelsten\scripts\formslist.csv -NoTypeInformation
+$cleaned | Sort-Object |  Export-Csv -Path C:\Users\aingelsten\scripts\formslist.csv -NoTypeInformation
 
 Write-Output "Exporting to SharePoint"
 
@@ -93,10 +96,12 @@ Write-Output "Exporting to SharePoint"
 $SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
 $SourceFilePath ="c:\Users\aingelsten\scripts\formslist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
-$ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
-$ClientSecret ="TK5KpFk+UX1XI+F4zsEXv1rDFF045QTortyhXC/z17g="
+$ClientId = Get-Content "C:\Users\aingelsten\scripts\ClientID.csv"
+$ClientSecret = Get-Content "C:\Users\aingelsten\scripts\ClientSecret.txt"
 
- 
+
+
+
 #Connect to SharePoint Online with ClientId and ClientSecret
 Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret
 
