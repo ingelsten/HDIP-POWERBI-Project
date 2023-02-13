@@ -15,8 +15,8 @@
 
 #Select-Pipedrive -Connection $conn -Table Deals -Where "UserName = 'Bob'" | Select -Property * -ExcludeProperty Connection,Table,Columns | Export-Csv -Path c:\myDealsData.csv -NoTypeInformation
 
-$PipeDriveAPI="1b0a5852601c4b14bacd5800721f3fd97e884d35"
-$Pipedrive_domain="mainlinegroup"
+#$PipeDriveAPI="1b0a5852601c4b14bacd5800721f3fd97e884d35"
+#$Pipedrive_domain="mainlinegroup"
 
 #$Pipedrive_BaseURL="https://$Pipedrive_domain.pipedrive.com/v1/"
 
@@ -29,9 +29,19 @@ $Pipedrive_domain="mainlinegroup"
 #$PipeDrive_APIKey="3e3c33c3a3d3333dcd333ab3c333333c33b33fc"
 #$Pipedrive_domain="company"
 
-$Pipedrive_BaseURL="https://$Pipedrive_domain.pipedrive.com/v1/"
+<#
+PipeDriveAPI
+This API pulls all deals, persons, and activitites from Pipedrive
+As the data is paginated and a page only holds 100 records
+The loops starts on 0 and iterates by 100
+When pull is completed the data is exported to Sharepoint Online
+#>
 
-$num = 0
+#Configuration -  API token
+$PipeDriveAPI="1b0a5852601c4b14bacd5800721f3fd97e884d35"
+$Pipedrive_domain="mainlinegroup"
+$Pipedrive_BaseURL="https://$Pipedrive_domain.pipedrive.com/v1/"
+$num2 = 0
 
 # Get All Persons
 #https://developers.pipedrive.com/docs/api/v1/#!/Persons/getPersons
@@ -44,12 +54,60 @@ $num = 0
 #$Url=$Pipedrive_BaseURL+"activities?start=$num&api_token=$PipeDriveAPI"
 
 # Get All Deals
-$Url=$Pipedrive_BaseURL+"deals?start=$num&api_token=$PipeDriveAPI"
+#$Url=$Pipedrive_BaseURL+"deals?start=$num&api_token=$PipeDriveAPI"
+
+
+#for ($i=0; $i -le 1000; $i++) {$i,"`n"}
+
+for ($num=0;$num -le $num; $num+=100)
+{
+        $Url=$Pipedrive_BaseURL+"deals?start=$num&api_token=$PipeDriveAPI"
+
+        $Result=Invoke-RestMethod -uri $URL -Method GET 
+    
+        $Result.data
+
+        if ($null -eq $Result)
+        {
+            Write-Output "*****NO DATA FOUND****"
+        }
+        else {
+                   $Result.data | Export-Csv -Path C:\Users\aingelsten\scripts\deals_deal.csv -NoTypeInformation -Append
+        Write-Output "*****LOADING****"
+        Write-Output $num
+        Start-Sleep -Seconds 0.5 
+        }
+
+    }
+
+
+
+
+{
+    $Url=$Pipedrive_BaseURL+"deals?start=$num&api_token=$PipeDriveAPI"
+
+    $Result=Invoke-RestMethod -uri $URL -Method GET 
+
+    $Result.data
+
+    $Result.data | Export-Csv -Path C:\Users\aingelsten\scripts\deals_deal.csv -NoTypeInformation -Append
+    Write-Output "*****LOADING****"
+    Write-Output $num
+    Start-Sleep -Seconds 0.5
+
+}
+
+$cleaned = Import-Csv C:\Users\aingelsten\scripts\formslist.csv| Sort-Object FormID -Unique
+
+Start-Sleep -Seconds 0.5
+
+$cleaned | Sort-Object |  Export-Csv -Path C:\Users\aingelsten\scripts\formslist.csv -NoTypeInformation
 
 # Get All Deal Fields
 #$Url=$Pipedrive_BaseURL+"dealFields?start=$num&api_token=$PipeDriveAPI"
 
 
+<#
 $Result=Invoke-RestMethod -uri $URL -Method GET 
 
 $Result.data
@@ -71,3 +129,4 @@ Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret
 Add-PnPFile -Path $SourceFilePath -Folder $DestinationPath
 
 Write-Output "Process Deals Pipeline completed"
+#>
