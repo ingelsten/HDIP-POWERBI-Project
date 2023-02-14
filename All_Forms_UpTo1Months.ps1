@@ -96,7 +96,7 @@ Write-Output "Exporting to SharePoint"
 $SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
 $SourceFilePath ="c:\Users\aingelsten\scripts\formslist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
-$ClientId = Get-Content "C:\Users\aingelsten\scripts\ClientID.csv"
+$ClientId = Get-Content "C:\Users\aingelsten\scripts\ClientID.txt"
 $ClientSecret = Get-Content "C:\Users\aingelsten\scripts\ClientSecret.txt"
 
 
