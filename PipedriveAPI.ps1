@@ -7,8 +7,8 @@ When pull is completed the data is exported to Sharepoint Online
 #>
 
 #Configuration -  API token
-$PipeDriveAPI="1b0a5852601c4b14bacd5800721f3fd97e884d35"
-$Pipedrive_domain="mainlinegroup"
+$PipeDriveAPI= Get-Content "c:\Users\aingelsten\scripts\PipeDriveAPI.txt"
+$Pipedrive_domain= Get-Content "c:\Users\aingelsten\scripts\Pipedrive_domain.txt"
 $Pipedrive_BaseURL="https://$Pipedrive_domain.pipedrive.com/v1/"
 
 Write-Output "***Getting All Deals***"
@@ -27,12 +27,12 @@ for ($num;; $num+=99)
         if ($null -ne $Result_Deals.data)
         {
             $Result_Deals.data | Export-Csv -Path C:\Users\aingelsten\scripts\Deals_pipe.csv -NoTypeInformation -Append
-            Write-Output "*****LOADING****"
+            Write-Output "****EXPORT****"
             Start-Sleep -Seconds 0.5 
         }
         else {
 
-        Write-Output "*****LOOP ENDS***"
+        Write-Output "****LOOP ENDS***"
         Break
 
         }
@@ -61,12 +61,12 @@ $numa = 0
             if ($null -ne $Result_Activities.data)
             {
                 $Result_Activities.data | Export-Csv -Path C:\Users\aingelsten\scripts\Activities_pipe.csv -NoTypeInformation -Append
-                Write-Output "*****LOADING****"
+                Write-Output "*****EXPORT****"
                 Start-Sleep -Seconds 0.5 
             }
             else {
     
-            Write-Output "*****LOOP ENDS***"
+            Write-Output "****LOOP ENDS***"
             Break
     
             }
@@ -100,12 +100,12 @@ $nump = 0
             if ($null -ne $Result_Persons.data)
             {
                 $Result_Persons.data | Export-Csv -Path C:\Users\aingelsten\scripts\Persons_pipe.csv -NoTypeInformation -Append
-                Write-Output "*****LOADING****"
+                Write-Output "*****EXPORT****"
                 Start-Sleep -Seconds 0.5 
             }
             else {
     
-            Write-Output "*****LOOP ENDS***"
+            Write-Output "****LOOP ENDS***"
             Break
     
             }
