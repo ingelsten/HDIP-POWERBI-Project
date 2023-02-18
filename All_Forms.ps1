@@ -109,6 +109,13 @@ $cleaned | Export-Csv -Path C:\Users\aingelsten\scripts\All_Formslist.csv -NoTyp
 
 Write-Output "Export seperate file of Form ID's only"
 
+
+#import, split and export only coins timesheet and it's Id's sorted by ID.
+Import-Csv -Path C:\Users\aingelsten\scripts\All_Formslist.csv | Where-Object {$_.FormName -eq "Coins TimeSheet" -and $_.Complete -eq "TRUE" } | Sort-Object LastModifiedOnServer -Descending | Export-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv -notypeinfo
+
+Import-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv | Select-Object FormID | Export-Csv -Path C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt –NoTypeInformation
+
+
 #import, split and export.
 $AllFormlist = "C:\Users\aingelsten\scripts\All_Formslist.csv"
 Get-Content $AllFormlist | ForEach-Object{$_.Split(",")[1]} | set-content "C:\Users\aingelsten\scripts\All_Formslist_ID.csv"
