@@ -1,4 +1,4 @@
-﻿<#
+<#
 Fieldview API 4 - Individual question answers for the Fieldview Timesheet
 This API pulls individual answers,
 loops through form id's and checks for question alias.
@@ -61,7 +61,7 @@ Write-Output $formsQuestionAnswer1
 
 $formsQuestionAnswer2 = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias2).FormAnswerInformation.childnodes
 
-$formsQuestionAnswer2 | Add-Member -MemberType NoteProperty -Name "Formid" -Value $FormID
+$formsQuestionAnswer2 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
 $formsQuestionAnswer2 | Export-Csv -Path C:\Users\aingelsten\scripts\$answer2 -Append -NoTypeInformation
 
@@ -73,7 +73,7 @@ Write-Output $formsQuestionAnswer2
 
 $formsQuestionAnswer3 = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias3).FormAnswerInformation.childnodes
 
-$formsQuestionAnswer3 | Add-Member -MemberType NoteProperty -Name "FormID" -Value $FormID
+$formsQuestionAnswer3 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
 $formsQuestionAnswer3 | Export-Csv -Path C:\Users\aingelsten\scripts\$answer3 -Append -NoTypeInformation
 
