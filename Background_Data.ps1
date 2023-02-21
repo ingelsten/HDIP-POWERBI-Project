@@ -3,8 +3,14 @@ Fieldview API 0 - Lists of all organisational data.
 When pull is completed the data is exported to Sharepoint Online
 #>
 
-#gets API token from file
-$ApiToken = Get-Content C:\Users\aingelsten\scripts\api_id.txt
+#gets API token from config file
+Get-Content "C:\Users\aingelsten\OneDrive - Mainline Group\HDIP POWERBI Project\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+
+
+$apiToken = $h.Get_Item("APIKEY")
+
+
+#$ApiToken = Get-Content C:\Users\aingelsten\scripts\api_id.txt
 
 Write-Output "Connecting to API"
 
