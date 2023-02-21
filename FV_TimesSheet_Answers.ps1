@@ -4,7 +4,10 @@ This API pulls individual answers,
 loops through form id's and checks for question alias.
 #>
 
-$apiToken = Get-Content C:\Users\aingelsten\scripts\api_AF_id.txt
+$apiToken1 = Get-Content C:\Users\aingelsten\scripts\api_answer1.txt
+$apiToken2 = Get-Content C:\Users\aingelsten\scripts\api_answer2.txt
+$apiToken3 = Get-Content C:\Users\aingelsten\scripts\api_answer3.txt
+$apiToken4 = Get-Content C:\Users\aingelsten\scripts\api_answer4.txt
 
 $FVForms = New-WebServiceProxy -Uri "https://www.priority1.uk.net/FieldViewWebServices/WebServices/XML/API_FormsServices.asmx?WSDL"
 
@@ -34,7 +37,7 @@ Write-Output $FormID
 
 #Start-Sleep -Seconds 1
 
-$formsQuestionAnswer = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias).FormAnswerInformation.childnodes
+$formsQuestionAnswer = $FVForms.GetQuestionAnswer($apiToken1, $FormID, $questionAlias).FormAnswerInformation.childnodes
 
 $formsQuestionAnswer | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
@@ -44,9 +47,9 @@ Write-Output $formsQuestionAnswer
 
 #Write-Output $formId
 
-#Start-Sleep -Seconds 0.5
+#Start-Sleep -Seconds 1
 
-$formsQuestionAnswer1 = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias1).FormAnswerInformation.childnodes
+$formsQuestionAnswer1 = $FVForms.GetQuestionAnswer($apiToken2, $FormID, $questionAlias1).FormAnswerInformation.childnodes
 
 $formsQuestionAnswer1 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
@@ -57,9 +60,9 @@ Write-Output $formsQuestionAnswer1
 
 #Write-Output $formId
 
-#Start-Sleep -Seconds 0.5
+#Start-Sleep -Seconds 1
 
-$formsQuestionAnswer2 = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias2).FormAnswerInformation.childnodes
+$formsQuestionAnswer2 = $FVForms.GetQuestionAnswer($apiToken3, $FormID, $questionAlias2).FormAnswerInformation.childnodes
 
 $formsQuestionAnswer2 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
@@ -69,9 +72,9 @@ Write-Output $formsQuestionAnswer2
 
 #Write-Output $formId
 
-#Start-Sleep -Seconds 0.5
+#Start-Sleep -Seconds 1
 
-$formsQuestionAnswer3 = $FVForms.GetQuestionAnswer($apiToken, $FormID, $questionAlias3).FormAnswerInformation.childnodes
+$formsQuestionAnswer3 = $FVForms.GetQuestionAnswer($apiToken4, $FormID, $questionAlias3).FormAnswerInformation.childnodes
 
 $formsQuestionAnswer3 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Value $FormID
 
@@ -81,15 +84,15 @@ Write-Output $formsQuestionAnswer3
 
 }
 
-$cleaned = Import-Csv C:\Users\aingelsten\scripts\$answer| Sort-Object FormID –Unique
+$cleaned = Import-Csv C:\Users\aingelsten\scripts\$answer| Sort-Object FormID -Unique
 
-$cleaned1 = Import-Csv C:\Users\aingelsten\scripts\$answer1 | Sort-Object FormID –Unique
+$cleaned1 = Import-Csv C:\Users\aingelsten\scripts\$answer1 | Sort-Object FormID -Unique
 
-$cleaned2 = Import-Csv C:\Users\aingelsten\scripts\$answer2 | Sort-Object FormID –Unique
+$cleaned2 = Import-Csv C:\Users\aingelsten\scripts\$answer2 | Sort-Object FormID -Unique
 
-$cleaned3 = Import-Csv C:\Users\aingelsten\scripts\$answer3 | Sort-Object FormID –Unique
+$cleaned3 = Import-Csv C:\Users\aingelsten\scripts\$answer3 | Sort-Object FormID -Unique
 
-Start-Sleep -Seconds 0.5
+#Start-Sleep -Seconds 0.5
 
 $cleaned | Export-Csv -Path C:\Users\aingelsten\scripts\$answer -NoTypeInformation
 
