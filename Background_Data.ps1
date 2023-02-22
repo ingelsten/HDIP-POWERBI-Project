@@ -6,9 +6,8 @@ When pull is completed the data is exported to Sharepoint Online
 #gets API token from config file
 Get-Content "C:\Users\aingelsten\OneDrive - Mainline Group\HDIP POWERBI Project\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
 
-
 $apiToken = $h.Get_Item("APIKEY")
-
+$SiteURL = $h.Get_Item("SiteURL")
 
 #$ApiToken = Get-Content C:\Users\aingelsten\scripts\api_id.txt
 
@@ -42,7 +41,7 @@ $projects = $FVApiConfig.GetProjects($apiToken, $null, $null, 1, 0, 100).Project
 $projects | Export-Csv -Path C:\Users\aingelsten\scripts\projectlist.csv -NoTypeInformation
 
 #Configuration of Sharepoint Variables
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
+#$SiteURL = $h.Get_Item("SiteURL")
 $SourceFilePath ="C:\Users\aingelsten\scripts\projectlist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
 $ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
