@@ -25,7 +25,7 @@ $questionAlias3 = "TS_Hour_Calculation"
 $formIds = Get-Content "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt"
 #$formIds = Get-Content "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv"
 #$formIds = Get-Content "C:\Users\aingelsten\scripts\All_Formslist_ID.csv"
-#$formIds = "F207755.375"
+formIds = "F207743.169"
 
 #Loops through every project id
 foreach ($FormID in $formIds)
@@ -84,12 +84,12 @@ $formsQuestionAnswer3 | Export-Csv -Path C:\Users\aingelsten\scripts\$answer3 -A
 Write-Output $formsQuestionAnswer3
 
 }
-<#
+
 $answer = "FVTimeSheet_Completed_By.csv"
 $answer1 = "FVTimeSheet_Contract.csv"
 $answer2 = "FVTimeSheet_Date.csv"
 $answer3 = "FVTimeSheet_Hours.csv"
-#>
+
 $cleaned = Import-Csv C:\Users\aingelsten\scripts\$answer| Sort-Object Form_Id -Unique
 
 $cleaned1 = Import-Csv C:\Users\aingelsten\scripts\$answer1 | Sort-Object Form_Id -Unique
