@@ -12,11 +12,10 @@ $answer = "FVTimeSheet_Completed_By.csv"
 $answer1 = "FVTimeSheet_Contract.csv"
 $answer2 = "FVTimeSheet_Date.csv"
 $answer3 = "FVTimeSheet_Hours.csv"
-$questionAlias = "Completed By"
-$questionAlias1 = "Contract"
-$questionAlias2 = "Date"
-$questionAlias3 = "Hour Calculation"
-
+$questionAlias = "TS_Completed_By"
+$questionAlias1 = "TS_Contract"
+$questionAlias2 = "TS_Date_Timesheet"
+$questionAlias3 = "TS_Hour_Calculation"
 
 #Gets All ID's
 $formIds = Get-Content "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv"

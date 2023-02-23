@@ -20,7 +20,6 @@ $questionAlias1 = "TS_Contract"
 $questionAlias2 = "TS_Date_Timesheet"
 $questionAlias3 = "TS_Hour_Calculation"
 
-w
 #Gets All ID's
 
 $formIds = Get-Content "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt"
