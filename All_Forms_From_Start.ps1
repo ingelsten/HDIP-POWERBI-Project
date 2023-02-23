@@ -9,7 +9,7 @@ When pull is completed the data is exported to Sharepoint Online
 This API only pulls data 3months back in time, 
 start time of the first projects was in the Summer of 2021
 #>
-$StartDate =Get-Date "2021-01-60  00:00:00"
+$StartDate = Get-Date "2021-06-01  00:00:00"
 
 $EndDate = Get-Date
 
@@ -86,7 +86,7 @@ $formsList | Add-Member -MemberType NoteProperty -Name "ProjectId" -Value $proje
 Write-Output  "Writing to file"
 
 #Write result to file
-$formsList | Export-Csv -Path c:\Users\aingelsten\scripts\All_Formslist.csv -append -NoTypeInformation
+$formsList | Export-Csv -Path c:\Users\aingelsten\scripts\All_Formslist.csv -append –NoTypeInformation
 
 Write-Output  "Data written to file"
 }
@@ -95,26 +95,29 @@ Write-Output  "Data written to file"
 Start-Sleep -Seconds 2
 }
 
-Start-Sleep -Seconds 0.5
+Start-Sleep -Seconds 2
 
 Write-Output "Removing duplicates"
 
 #Removal of duplications by import and sort
-$cleaned = Import-Csv C:\Users\aingelsten\scripts\All_Formslist.csv| Sort-Object FormID Unique
+$cleaned = Import-Csv C:\Users\aingelsten\scripts\All_Formslist.csv| Sort-Object FormID –Unique
 
-Start-Sleep -Seconds 0.5
+Start-Sleep -Seconds 2
 
-$cleaned | Export-Csv -Path C:\Users\aingelsten\scripts\All_Formslist.csv -NoTypeInformation
+$cleaned | Export-Csv -Path C:\Users\aingelsten\scripts\All_Formslist.csv –NoTypeInformation
 }
 
 Write-Output "Export seperate file of Form ID's only"
 
 
 #import, split and export only coins timesheet and it's Id's sorted by ID.
-Import-Csv -Path C:\Users\aingelsten\scripts\All_Formslist.csv | Where-Object {$_.FormName -eq "Coins TimeSheet" -and $_.Complete -eq "TRUE" } | Sort-Object LastModifiedOnServer -Descending | Export-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv -notypeinfo
+$path = "C:\Users\aingelsten\scripts"
 
-Import-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv | Select-Object FormID |  Out-File C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt 
+Import-Csv -Path $path\All_Formslist.csv | Where-Object {$_.FormName -eq "Coins TimeSheet" -and $_.Complete -eq "TRUE" } | Sort-Object LastModifiedOnServer -Descending | Export-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv –NoTypeInformation
 
+Import-Csv C:\Users\aingelsten\scripts\All_Coins_Timesheet.csv  | Select-Object FormID | Export-Csv -Path C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv –NoTypeInformation
+
+Get-Content C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv -Encoding UTF8 | ForEach-Object {$_ -replace '"',''} | Out-File C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt -Encoding UTF8
 
 #import, split and export.
 $AllFormlist = "C:\Users\aingelsten\scripts\All_Formslist.csv"

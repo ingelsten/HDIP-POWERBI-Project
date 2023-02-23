@@ -20,11 +20,11 @@ $questionAlias1 = "TS_Contract"
 $questionAlias2 = "TS_Date_Timesheet"
 $questionAlias3 = "TS_Hour_Calculation"
 
-
+w
 #Gets All ID's
 
 $formIds = Get-Content "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.txt"
-#$formIds = Get-Content - Path "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv"
+#$formIds = Get-Content - "C:\Users\aingelsten\scripts\All_Coins_Timesheet_ID.csv"
 #$formIds = Get-Content "C:\Users\aingelsten\scripts\All_Formslist_ID.csv"
 #$formIds = "F207743.169"
 #$formIds.$FormID
