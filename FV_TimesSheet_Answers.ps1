@@ -3,6 +3,14 @@ Fieldview API 4 - Individual question answers for the Fieldview Timesheet
 This API pulls individual answers,
 loops through form id's and checks for question alias.
 #>
+<#gets API token from config file
+Get-Content "C:\Users\aingelsten\OneDrive - Mainline Group\HDIP POWERBI Project\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+
+$apiToken1 = $h.Get_Item("Answer1")
+$apiToken2 = $h.Get_Item("Answer2")
+$apiToken3 = $h.Get_Item("Answer3")
+$apiToken4 = $h.Get_Item("Answer4")
+#>
 
 $apiToken1 = Get-Content C:\Users\aingelsten\scripts\api_answer1.txt
 $apiToken2 = Get-Content C:\Users\aingelsten\scripts\api_answer2.txt
