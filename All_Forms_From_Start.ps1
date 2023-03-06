@@ -1,4 +1,4 @@
-<#
+﻿<#
 Fieldview API 2 - List of all Forms
 This API loops through all dates pulls all project id's and pull all forms
 When pull is completed the data is exported to Sharepoint Online
@@ -9,7 +9,7 @@ When pull is completed the data is exported to Sharepoint Online
 This API only pulls data 3months back in time, 
 start time of the first projects was in the Summer of 2021
 #>
-$StartDate = Get-Date.AddMonths(-3) 
+$StartDate = Get-Date '2021-01-01 00:00'
 
 $EndDate = Get-Date
 
