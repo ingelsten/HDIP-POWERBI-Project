@@ -29,7 +29,7 @@ $id | Sort-Object | Out-File c:\Users\aingelsten\scripts\projectid.txt
 
 Write-Output "Getting Dates"
 
-$reportEnd = (Get-Date).AddHours(1)
+$reportEnd = (Get-Date).AddHours(1) 
 
 Write-Output $reportEnd
 
@@ -41,6 +41,9 @@ $dateTo= $reportEnd
 $projectids = Get-Content C:\Users\aingelsten\scripts\projectid.txt
 
 Write-Output "Starting loop"
+
+Write-Output $datefrom
+Write-Output $dateTo
 
 #Looping through each project for forms
 foreach ($projectid in $projectids)
