@@ -41,7 +41,6 @@ $projects = $FVApiConfig.GetProjects($apiToken, $null, $null, 1, 0, 100).Project
 $projects | Export-Csv -Path C:\scripts\projectlist.csv -NoTypeInformation
 
 #Configuration of Sharepoint Variables
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
 $SourceFilePath ="C:\scripts\projectlist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
 $ClientId = Get-Content "C:\scripts\ClientID.txt"
