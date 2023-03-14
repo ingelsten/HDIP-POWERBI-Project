@@ -4,7 +4,7 @@ This API pulls individual answers,
 loops through form id's and checks for question alias.
 #>
 <#gets API token from config file
-Get-Content "C:\OneDrive - Mainline Group\HDIP POWERBI Project\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+Get-Content "C:\OneDrive - \HDIP POWERBI Project\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
 
 $apiToken1 = $h.Get_Item("Answer1")
 $apiToken2 = $h.Get_Item("Answer2")
@@ -29,13 +29,21 @@ $questionAlias2 = "TS_Date_Timesheet"
 $questionAlias3 = "TS_Hour_Calculation"
 
 #Gets All ID's
-
-$formIds = Get-Content "C:\scripts\All_Coins_Timesheet_ID.txt"
+#$formIds = Get-Content "C:\scripts\Current_Coins_Timesheet_ID.txt"
 #$formIds = Get-Content - "C:\scripts\All_Coins_Timesheet_ID.csv"
 #$formIds = Get-Content "C:\scripts\All_Formslist_ID.csv"
 #$formIds = "F207743.169"
 #$formIds.$FormID
 #Write-Output $FormID
+
+#Gets ID's one day back in time
+Import-Csv C:\scripts\formslist_current.csv | Where-Object {$_.FormName -eq "Coins TimeSheet" -and $_.Complete -eq "TRUE"} | Sort-Object LastModifiedOnServer -Descending | Export-Csv C:\scripts\Current_Coins_Timesheet.csv –NoTypeInformation
+
+Import-Csv C:\scripts\Current_Coins_Timesheet.csv  | Select-Object FormID | Export-Csv -Path C:\scripts\Current_Coins_Timesheet_ID.csv –NoTypeInformation
+
+Get-Content C:\scripts\Current_Coins_Timesheet_ID.csv -Encoding UTF8 | ForEach-Object {$_ -replace '"',''} | Out-File C:\scripts\Current_Coins_Timesheet_ID.txt -Encoding UTF8
+
+$formIds = Get-Content "C:\scripts\Current_Coins_Timesheet_ID.txt"
 
 #Loops through every project id
 foreach ($FormID in $formIds)
@@ -95,10 +103,12 @@ Write-Output $formsQuestionAnswer3
 
 }
 
+<#used when aborting and running partial
 $answer = "FVTimeSheet_Completed_By.csv"
 $answer1 = "FVTimeSheet_Contract.csv"
 $answer2 = "FVTimeSheet_Date.csv"
 $answer3 = "FVTimeSheet_Hours.csv"
+#>
 
 $cleaned = Import-Csv C:\scripts\$answer| Sort-Object Form_Id -Unique
 
@@ -120,15 +130,20 @@ $cleaned3 | Export-Csv -Path C:\scripts\$answer3 -NoTypeInformation
 
 Write-Output "Exporting to SharePoint"
 
+# gets SITE URL from config file
+Get-Content "C:\scripts\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+
 #Configuration of Sharepoint Variables
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
+$SiteURL = $h.Get_Item("SiteURL")
+
+#Configuration of Sharepoint Variables
 $SourceFilePath ="c:\scripts\$answer"
 $SourceFilePath1 ="c:\scripts\$answer1"
 $SourceFilePath2 ="c:\scripts\$answer2"
 $SourceFilePath3 ="c:\scripts\$answer3"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
-$ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
-$ClientSecret ="TK5KpFk+UX1XI+F4zsEXv1rDFF045QTortyhXC/z17g="
+$ClientId = Get-Content "C:\scripts\ClientID.txt"
+$ClientSecret = Get-Content "C:\scripts\ClientSecret.txt"
 
 #Connect to SharePoint Online with ClientId and ClientSecret
 Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret

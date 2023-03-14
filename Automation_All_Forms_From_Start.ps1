@@ -1,5 +1,5 @@
 ﻿<#
-Fieldview API 2 - List of all Forms
+Fieldview API 2 - List of all Forms. Update
 This API loops through all dates pulls all project id's and pull all forms
 When pull is completed the data is exported to Sharepoint Online
 #>
@@ -9,7 +9,7 @@ When pull is completed the data is exported to Sharepoint Online
 This API only pulls data 3months back in time, 
 start time of the first projects was in the Summer of 2021
 #>
-$StartDate = Get-Date '2022-03-01 00:00'
+$StartDate = Get-Date '2021-06-01 00:00'
 
 $EndDate = Get-Date
 
@@ -126,15 +126,19 @@ Write-Output "Process Completed"
 
 Write-Output "Exporting to SharePoint"
 
-#EXport to Sharepoint
+#Export to Sharepoint
+#Gets SITE URL from config file
+Get-Content "C:\scripts\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+
+
 #Configuration of Sharepoint Variables
 $SourceFilePath ="c:\scripts\All_Formslist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
-$ClientId = "51de05cf-9537-4408-ae22-49c55d98b064"
-$ClientSecret ="TK5KpFk+UX1XI+F4zsEXv1rDFF045QTortyhXC/z17g="
+$ClientId = Get-Content "C:\scripts\ClientID.txt"
+$ClientSecret = Get-Content "C:\scripts\ClientSecret.txt"
 
 #Site collection URL
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline/"
+$SiteURL = $h.Get_Item("SiteURL")
  
 #Connect to SharePoint Online with ClientId and ClientSecret
 Connect-PnPOnline -Url $SiteURL -ClientId $ClientId -ClientSecret $ClientSecret

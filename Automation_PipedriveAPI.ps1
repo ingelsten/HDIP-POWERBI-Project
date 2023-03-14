@@ -2,6 +2,7 @@
 <#
 PipeDriveAPI- This API pulls all deals, persons, and activitites from Pipedrive
 As the data is paginated and a page only holds 100 records
+
 The loops starts on 0 and iterates by 100
 When pull is completed the data is exported to Sharepoint Online
 #>
@@ -119,9 +120,11 @@ Start-Sleep -Seconds 0.5
 
 $cleaned_Persons | Export-Csv -Path C:\scripts\Persons_pipe.csv -NoTypeInformation
 
+# gets SITE URL from config file
+Get-Content "C:\scripts\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
 
 #Configuration of Sharepoint Variables
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
+$SiteURL = $h.Get_Item("SiteURL")
 $SourceFilePath_Deals ="c:\scripts\Deals_pipe.csv"
 $SourceFilePath_Activities ="c:\scripts\Activities_pipe.csv"
 $SourceFilePath_Persons ="c:\scripts\Persons_pipe.csv"

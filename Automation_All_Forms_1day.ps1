@@ -15,6 +15,9 @@ $FVApiForms = New-WebServiceProxy -Uri "https://www.priority1.uk.net/FieldViewWe
 
 Write-Output "Getting Project ID's"
 
+#Delete ofcurrent list to be replaced
+Remove-Item c:\scripts\formslist_current.csv
+
 #Gets Project ID
 $FVApiConfig.GetProjects($apiToken, $null, $null, 1, 0, 100).ProjectInformation.childnodes.id
 
@@ -31,7 +34,7 @@ $reportEnd = (Get-Date).AddHours(1)
 Write-Output $reportEnd
 
 #Getting dates
-$datefrom = Get-Date -Date $reportEnd.AddDays(-1) -Format "yyyy-MM-ddTHH:mm:ss"
+$datefrom = Get-Date -Date $reportEnd.AddDays(-7) -Format "yyyy-MM-ddTHH:mm:ss"
 
 $dateTo= $reportEnd
 
@@ -72,6 +75,10 @@ Write-Output  "Writing to file"
 #Export to file
 $formsList | Export-Csv -Path c:\scripts\formslist.csv -append -NoTypeInformation
 
+#Exporting only last data, creating new and apending data
+
+$formsList | Export-Csv -Path c:\scripts\formslist_current.csv -append  -NoTypeInformation
+
 Write-Output  "Data written to file"
 }
 #Time delay to avoid API call quota
@@ -92,8 +99,11 @@ $cleaned | Sort-Object |  Export-Csv -Path C:\scripts\formslist.csv -NoTypeInfor
 
 Write-Output "Exporting to SharePoint"
 
+# gets SITE URL from config file
+Get-Content "C:\scripts\config.conf" | foreach-object -begin {$h=@{}} -process { $k = [regex]::split($_,'='); if(($k[0].CompareTo("") -ne 0) -and ($k[0].StartsWith("[") -ne $True)) { $h.Add($k[0], $k[1]) } }
+
 #Configuration of Sharepoint Variables
-$SiteURL = "https://typetecmg.sharepoint.com/sites/ITMainline"
+$SiteURL = $h.Get_Item("SiteURL")
 $SourceFilePath ="c:\scripts\formslist.csv"
 $DestinationPath = "Kpi_Data" #Site Relative Path of the Library
 $ClientId = Get-Content "C:\scripts\ClientID.txt"

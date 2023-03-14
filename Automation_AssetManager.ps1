@@ -1,5 +1,5 @@
 <#
-AssetManager copy script - to be run to location for PowerBI to access
+AssetManager copy script - to be run to location for PowerBI to access.
 #>
 
 # This is the file to be copied
