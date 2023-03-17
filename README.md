@@ -1,6 +1,8 @@
 # HDIP-POWERBI-Project KPI WITH POWERBI
 
-Harnessing APIs for Organizational PowerBI KPI Visualization. This is a work-based project
+Harnessing APIs for Organizational PowerBI KPI Visualization. 
+
+This is a work-based project
 
 Name: Anders Ingelsten - 20095402
 
