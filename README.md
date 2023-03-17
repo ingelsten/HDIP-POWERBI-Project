@@ -35,34 +35,34 @@ repository. From there I committed everytime I made any small change.
 
 ## Script Screenshots
 
-Fieldview API
+Pipedrive API
 
 ![][view1]
 
-Pipedrive API
+Fieldview API
 
 ![][view2]
 
 ## Resources
 
-https://www.smartsheet.com
-https://www.viewpoint.com/en-gb/products/viewpoint-field-view
-https://www.microsoft.com/en-ie/microsoft-365/sharepoint/collaboration
-https://powerbi.microsoft.com/en-gb
-https://www.altexsoft.com/blog/engineering/what-is-soap-formats-protocols-message-structure-and-how-soap-is-different-from-rest
-https://learn.microsoft.com/en-us/powershell
-https://powerautomate.microsoft.com/en-gb
-https://learn.microsoft.com/en-us/power-automate/desktop-flows/actions-reference/scripting
-https://learn.microsoft.com/en-us/dax/
-https://www.microsoft.com/en-ie/microsoft-365/business/task-management-software
-https://help.viewpoint.com/en/viewpoint-field-view/field-view/api-documentation/apis
-https://www.spanishpoint.ie
-https://www.sharepointdiary.com/2018/03/connect-to-sharepoint-online-using-pnp-powershell.html
-https://www.youtube.com/watch?v=IJ1I2737JWU
-https://www.pipedrive.com
-https://www.kzsoftware.com/products/asset-management-software
-https://firebirdsql.org>Firebird
-https://docs.devart.com/odbc/firebird/powerbi.htm
+* https://www.smartsheet.com
+* https://www.viewpoint.com/en-gb/products/viewpoint-field-view
+* https://www.microsoft.com/en-ie/microsoft-365/sharepoint/collaboration
+* https://powerbi.microsoft.com/en-gb
+* https://www.altexsoft.com/blog/engineering/what-is-soap-formats-protocols-message-structure-and-how-soap-is-different-from-rest
+* https://learn.microsoft.com/en-us/powershell
+* https://powerautomate.microsoft.com/en-gb
+* https://learn.microsoft.com/en-us/power-automate/desktop-flows/actions-reference/scripting
+* https://learn.microsoft.com/en-us/dax/
+* https://www.microsoft.com/en-ie/microsoft-365/business/task-management-software
+* https://help.viewpoint.com/en/viewpoint-field-view/field-view/api-documentation/apis
+* https://www.spanishpoint.ie
+* https://www.sharepointdiary.com/2018/03/connect-to-sharepoint-online-using-pnp-powershell.html
+* https://www.youtube.com/watch?v=IJ1I2737JWU
+* https://www.pipedrive.com
+* https://www.kzsoftware.com/products/asset-management-software
+* https://firebirdsql.org>Firebird
+* https://docs.devart.com/odbc/firebird/powerbi.htm
 
 
 ### HDIP in Computer Science 2023 - Dep of Computing & Mathematics, SETU
