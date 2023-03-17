@@ -6,11 +6,12 @@ Name: Anders Ingelsten - 20095402
 
 ## General Overview.
 
-This project automates the generation and visualization of a company’s KPI reports.
+This project automates the generation and visualization of a company’s KPI reports.  
 
-Data is pulled from remote cloud-based systems, for example Fieldview and PipeDrive, via their APIs and the data is stored into SharePoint Online as CSV Data. PowerBI in conjunction with the formula language DAX is utilised as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet.
+Data is pulled from local hosted as well as remote cloud-based systems, for example Fieldview and PipeDrive, via their APIs and the data is stored into SharePoint Online as CSV Data. PowerBI in conjunction with the formula language DAX is utilised as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
 
-PowerShell is used as the scripting language to facilitate the data pull. The data pull and PowerBI refresh is scheduled several times per day, so employees have access to near live data.
+PowerShell is used as the scripting language to facilitate the data pull and. The data pull and PowerBI refresh is scheduled several times per day, so employees have access to near live data.
+
 
 Lecturer: Colm Dunphy
 Project Supervisor: Anita Kealy
@@ -67,4 +68,4 @@ https://docs.devart.com/odbc/firebird/powerbi.htm
 ### HDIP in Computer Science 2023 - Dep of Computing & Mathematics, SETU
 
 [view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview_SS.PNG
-[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview_SS.PNG
+[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Pipedrive_SS.PNG
