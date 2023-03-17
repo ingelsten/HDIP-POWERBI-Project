@@ -34,11 +34,11 @@ repository. From there I committed everytime I made any small change.
 
 ## Script Screenshots
 
-Fieldview
+Fieldview API
 
 ![][view1]
 
-Pipedrive
+Pipedrive API
 
 ![][view2]
 
@@ -68,5 +68,3 @@ https://docs.devart.com/odbc/firebird/powerbi.htm
 
 [view1]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW1.PNG
 [view2]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW2.PNG
-[view3]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW3.PNG
-[view4]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW4.PNG
