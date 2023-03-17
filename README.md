@@ -66,5 +66,5 @@ https://docs.devart.com/odbc/firebird/powerbi.htm
 
 ### HDIP in Computer Science 2023 - Dep of Computing & Mathematics, SETU
 
-[view1]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW1.PNG
-[view2]: https://github.com/ingelsten/Swimtrack_v2/blob/master/Public/SW2.PNG
+[view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview_SS.PNG
+[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview_SS.PNG
