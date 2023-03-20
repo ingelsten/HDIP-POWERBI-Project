@@ -39,11 +39,11 @@ repository. From there I committed everytime I made any small change.
 
 Pipedrive API
 
-![][view1]
+![][view2]
 
 Fieldview API
 
-![][view2]
+![][view1]
 
 ## Resources
 
@@ -69,5 +69,5 @@ Fieldview API
 
 ### HDIP in Computer Science 2023 - Dep of Computing & Mathematics, SETU
 
-[view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview_SS.PNG
-[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Pipedrive_SS.PNG
+[view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview.PNG
+[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/PipeDrive.PNG
