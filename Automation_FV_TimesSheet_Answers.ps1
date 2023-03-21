@@ -62,7 +62,7 @@ $formsQuestionAnswer | Add-Member -MemberType NoteProperty -Name "Form_Id" -Valu
 
 $formsQuestionAnswer | Export-Csv -Path C:\scripts\$answer -Append -NoTypeInformation
 
-Write-Output $formsQuestionAnswer
+#Write-Output $formsQuestionAnswer
 
 #Write-Output $formId
 
@@ -74,7 +74,7 @@ $formsQuestionAnswer1 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Val
 
 $formsQuestionAnswer1 | Export-Csv -Path C:\scripts\$answer1 -Append -NoTypeInformation
 
-Write-Output $formsQuestionAnswer1
+#Write-Output $formsQuestionAnswer1
 
 
 #Write-Output $formId
@@ -87,7 +87,7 @@ $formsQuestionAnswer2 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Val
 
 $formsQuestionAnswer2 | Export-Csv -Path C:\scripts\$answer2 -Append -NoTypeInformation
 
-Write-Output $formsQuestionAnswer2
+#Write-Output $formsQuestionAnswer2
 
 #Write-Output $formId
 
@@ -99,7 +99,7 @@ $formsQuestionAnswer3 | Add-Member -MemberType NoteProperty -Name "Form_Id" -Val
 
 $formsQuestionAnswer3 | Export-Csv -Path C:\scripts\$answer3 -Append -NoTypeInformation
 
-Write-Output $formsQuestionAnswer3
+#Write-Output $formsQuestionAnswer3
 
 }
 
