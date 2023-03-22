@@ -8,14 +8,14 @@ Name: Anders Ingelsten - 20095402
 
 ## General Overview.
 
-Previously data for KPI reports within the organisation was pulled manually from local hosted, as well as remote cloud-based systems. The data was then processed by staff into report visuals.
+Previously data for KPI reports within the organisation was pulled manually from local hosted, as well as remotely hosted cloud-based systems, the data was then processed manually by staff into report visuals.
 
-This project objective was to streamline and automate this process. By for example pulling data via system APIs and then making it available to PowerBI by storing it into the organisations SharePoint Online as CSV Data. PowerBI, in conjunction with the formula language DAX, was then utilised as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
+This project’s objective was to streamline and automate this process. By, for example, pulling data via system APIs and then making it available to PowerBI by storing it into the organisation’s SharePoint Online as CSV Data. PowerBI, in conjunction with the formula language DAX, was then used as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
 
 PowerShell was used as the scripting language to facilitate the data pull and storage. Automation was then applied to the data pull and the PowerBI data refresh.
 
-
 Lecturer: Colm Dunphy
+
 Project Supervisor: Anita Kealy
 
 Module: Project
@@ -24,7 +24,7 @@ Module: Project
 
 The scripts in this GitHub is applicable to company and organisations using Fieldview and/or Pipedrive
 
-Any development will reuire the creation of API keys.
+Any development will require the creation of API keys.
 
 ## Script Languages
 
