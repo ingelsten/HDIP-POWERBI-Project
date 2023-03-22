@@ -1,6 +1,6 @@
-# HDIP-POWERBI-Project KPI WITH POWERBI
+# POWERBI REPORT AUTOMATION
 
-Harnessing APIs for Organizational PowerBI KPI Visualization. 
+Utilising PowerShell to automate reporting in PowerBI
 
 This is a work-based project
 
