@@ -1,6 +1,6 @@
-# POWERBI REPORT AUTOMATION
+# KPI WITH POWERBI
 
-Utilising PowerShell to automate reporting in PowerBI
+Streamlining report building with PowerBI and PowerShell
 
 This is a work-based project
 
@@ -8,11 +8,11 @@ Name: Anders Ingelsten - 20095402
 
 ## General Overview.
 
-This project automates the generation and visualization of a company’s KPI reports.  
+Previously data for KPI reports within the organisation was pulled manually from local hosted, as well as remote cloud-based systems. The data was then processed by staff into report visuals.
 
-Data is pulled from local hosted as well as remote cloud-based systems, for example Fieldview and PipeDrive, via their APIs and the data is stored into SharePoint Online as CSV Data. PowerBI in conjunction with the formula language DAX is utilised as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
+This project objective was to streamline and automate this process. By for example pulling data via system APIs and then making it available to PowerBI by storing it into the organisations SharePoint Online as CSV Data. PowerBI, in conjunction with the formula language DAX, was then utilised as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
 
-PowerShell is used as the scripting language to facilitate the data pull and. The data pull and PowerBI refresh is scheduled several times per day, so employees have access to near live data.
+PowerShell was used as the scripting language to facilitate the data pull and storage. Automation was then applied to the data pull and the PowerBI data refresh.
 
 
 Lecturer: Colm Dunphy
