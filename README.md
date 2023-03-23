@@ -4,8 +4,13 @@ Streamlining report building with PowerBI and PowerShell
 
 This is a work-based project
 
-![][view4]
 Name: Anders Ingelsten - 20095402
+
+Lecturer: Colm Dunphy
+
+Project Supervisor: Anita Kealy
+
+Module: Project
 
 ## General Overview.
 ![][view3]
@@ -15,12 +20,6 @@ Previously data for KPI reports within the organisation was pulled manually from
 This project’s objective was to streamline and automate this process. By, for example, pulling data via system APIs and then making it available to PowerBI by storing it into the organisation’s SharePoint Online as CSV Data. PowerBI, in conjunction with the formula language DAX, was then used as the visualisation tool, to display the stored data, as up to date organisational interactive KPI reporting diagrams on the company’s intranet. 
 
 PowerShell was used as the scripting language to facilitate the data pull and storage. Automation was then applied to the data pull and the PowerBI data refresh.
-
-Lecturer: Colm Dunphy
-
-Project Supervisor: Anita Kealy
-
-Module: Project
 
 ## Pre-requisites
 
