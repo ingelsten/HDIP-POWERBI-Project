@@ -28,7 +28,7 @@ Any development will require the creation of API keys.
 
 ## Script Languages
 
-Powershell
+Powershell and DAX
 
 ## Git Approach
 
