@@ -4,9 +4,11 @@ Streamlining report building with PowerBI and PowerShell
 
 This is a work-based project
 
+![][view4]
 Name: Anders Ingelsten - 20095402
 
 ## General Overview.
+![][view3]
 
 Previously data for KPI reports within the organisation was pulled manually from local hosted, as well as remotely hosted cloud-based systems, the data was then processed manually by staff into report visuals.
 
@@ -71,3 +73,5 @@ Fieldview API
 
 [view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Fieldview.PNG
 [view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/PipeDrive.PNG
+[view3]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/20095402projectimage.png
+[view4]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/20095402personal.jpg
