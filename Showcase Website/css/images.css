@@ -1,0 +1,62 @@
+
+.img-ban {
+  max-height: 100%;
+  float:center;
+}
+
+.img-sl {
+  display: block;
+  max-width: 10%;
+  float: left;
+  margin: 10px;
+}
+
+.img-tl {
+  display: block;
+  max-width: 9%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  float: left;
+  margin: 10px;
+}
+
+.img-sc {
+  display: block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  border: 3px solid #245585;
+  border-radius: 15px
+}
+
+.img-sc2 {
+  display: block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  border: 3px solid #245585;
+  border-radius: 15px
+}
+
+.img-mc {
+  display: block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  border: 3px solid #245585;
+  border-radius: 15px
+}
+
+.img-vlc {
+  display: block;
+ max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1px;
+  border: 3px solid #245585;
+  border-radius: 15px
+}
