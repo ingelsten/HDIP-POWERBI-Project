@@ -69,5 +69,5 @@ Fieldview API
 
 ### HDIP in Computer Science 2023 - Dep of Computing & Mathematics, SETU
 
-[view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/Fieldview.PNG
-[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Background%20Data/PipeDrive.PNG
+[view1]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/Fieldview.PNG
+[view2]: https://github.com/ingelsten/HDIP-POWERBI-Project/blob/master/PipeDrive.PNG
